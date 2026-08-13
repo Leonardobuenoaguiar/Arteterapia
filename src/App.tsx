@@ -2,7 +2,6 @@ import { useEffect, useState, type CSSProperties } from "react";
 import {
   WHATSAPP,
   INSTAGRAM,
-  Symbol,
   GlyphHeart,
   GlyphMoon,
   GlyphFlower,
@@ -458,10 +457,15 @@ function Hero() {
               />
             </div>
 
-            <div className="absolute -bottom-7 -left-5 flex h-20 w-20 items-center justify-center rounded-full bg-[#0B2428] md:-bottom-10 md:-left-10 md:h-28 md:w-28">
-              <Symbol
-                className="h-10 w-auto md:h-14"
-                color="#FED38A"
+            <div className="absolute -bottom-7 -left-5 z-10 flex h-20 w-20 items-center justify-center overflow-hidden rounded-full bg-[#0B2428] md:-bottom-10 md:-left-10 md:h-28 md:w-28">
+              <img
+                src="/images/logo2.png"
+                alt="Carolina Candida"
+                className="h-[68%] w-[68%] object-contain"
+                style={{
+                  filter:
+                    "brightness(0) saturate(100%) invert(86%) sepia(31%) saturate(500%) hue-rotate(338deg) brightness(104%)",
+                }}
               />
             </div>
 
@@ -607,7 +611,7 @@ function Sobre() {
         src="/images/icone-3.png"
         opacity={0.10}
         rotate={-8}
-        className="-right-24 top-[22%] h-[330px] w-[330px] md:-right-44 md:top-[16%] md:h-[520px] md:w-[520px]"
+        className="hidden md:block md:-right-44 md:top-[16%] md:h-[520px] md:w-[520px]"
       />
 
       <div className="pointer-events-none absolute -left-20 top-28 h-48 w-48 rounded-full bg-[#D5DE9B]/30 blur-3xl" />
@@ -641,7 +645,14 @@ function Sobre() {
           </div>
         </Reveal>
 
-        <div className="lg:pt-14">
+        <div className="relative lg:pt-14">
+          <BackgroundIcon
+            src="/images/icone-3.png"
+            opacity={0.14}
+            rotate={-8}
+            className="-right-44 top-44 h-[300px] w-[300px] md:hidden"
+          />
+
           <Reveal>
             <p className="font-omnes mb-6 text-[0.62rem] uppercase tracking-[0.34em] text-[#D45C0E]">
               sobre
@@ -1069,11 +1080,18 @@ function ComoFunciona() {
   return (
     <section
       id="como-funciona"
-      className="relative overflow-hidden bg-[#EFEAD5] px-5 py-24 md:px-12 md:py-40"
+      className="relative overflow-hidden bg-[#EFEAD5] px-5 py-16 md:px-12 md:py-28"
     >
       <div className="paper-grain pointer-events-none absolute inset-0 opacity-50" />
 
-      <div className="relative mx-auto max-w-[1300px]">
+      <BackgroundIcon
+        src="/images/icone-5.png"
+        opacity={0.22}
+        rotate={-8}
+        className="z-[1] -right-40 top-0 h-[340px] w-[340px]"
+      />
+
+      <div className="relative z-10 mx-auto max-w-[1300px]">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
           <Reveal>
             <div>
