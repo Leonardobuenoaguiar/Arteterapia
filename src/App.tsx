@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import {
   WHATSAPP,
   INSTAGRAM,
@@ -28,60 +28,49 @@ const NAV = [
 ];
 
 /* =========================================================
-   ONDA — DIVISÃO ENTRE SECTIONS
-   No mobile, subpixel + overflow-hidden no scroll deixam
-   uma linha reta de 1px antes da ondulação. O preenchimento
-   do path ultrapassa o viewBox (invisível) e uma faixa de
-   3px só no mobile cobre a junta, sem alterar o desktop
-   nem o desenho da onda.
+   ONDA — a section seguinte recorta o topo no formato da
+   onda e sobe 70px sobre a anterior. A cor de cima aparece
+   nos “vales” de verdade, sem SVG nem franja/sombra na curva.
    ========================================================= */
 
-const WAVE_TOP_D =
-  "M0 -8 H1440 V25 C1320 50 1200 65 1080 45 C960 25 840 10 720 30 C600 50 480 65 360 40 C240 15 120 5 0 20 Z";
+const MASK_WAVE_TOP =
+  "url(\"data:image/svg+xml," +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="white" d="M0 20C120 5 240 15 360 40C480 65 600 50 720 30C840 10 960 25 1080 45C1200 65 1320 50 1440 25V70H0Z"/></svg>'
+  ) +
+  '")';
 
-const WAVE_BOTTOM_D =
-  "M0 78 H1440 V45 C1320 20 1200 5 1080 25 C960 45 840 60 720 40 C600 20 480 5 360 30 C240 55 120 65 0 50 Z";
+const MASK_WAVE_BOTTOM =
+  "url(\"data:image/svg+xml," +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="white" d="M0 50C120 65 240 55 360 30C480 5 600 20 720 40C840 60 960 45 1080 25C1200 5 1320 20 1440 45V70H0Z"/></svg>'
+  ) +
+  '")';
 
-function WaveEdge({
-  fill,
-  placement,
-  children,
-}: {
-  fill: string;
-  placement: "top" | "bottom";
-  children?: React.ReactNode;
-}) {
-  return (
-    <div
-      className={`pointer-events-none absolute inset-x-0 z-20 w-full overflow-hidden leading-[0] ${
-        placement === "top" ? "top-0" : "bottom-0"
-      }`}
-      style={{ height: "70px" }}
-    >
-      <div
-        className={`absolute inset-x-0 z-10 h-[3px] md:hidden ${
-          placement === "top" ? "top-0" : "bottom-0"
-        }`}
-        style={{ background: fill }}
-        aria-hidden="true"
-      />
+function waveTopMaskStyle(): CSSProperties {
+  return {
+    WebkitMaskImage: `${MASK_WAVE_TOP}, linear-gradient(#000 0 0)`,
+    maskImage: `${MASK_WAVE_TOP}, linear-gradient(#000 0 0)`,
+    WebkitMaskSize: "100% 71px, 100% calc(100% - 70px)",
+    maskSize: "100% 71px, 100% calc(100% - 70px)",
+    WebkitMaskPosition: "0 0, 0 70px",
+    maskPosition: "0 0, 0 70px",
+    WebkitMaskRepeat: "no-repeat",
+    maskRepeat: "no-repeat",
+  };
+}
 
-      <svg
-        viewBox="0 0 1440 70"
-        preserveAspectRatio="none"
-        className="relative block h-full w-full"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path
-          d={placement === "top" ? WAVE_TOP_D : WAVE_BOTTOM_D}
-          fill={fill}
-        />
-      </svg>
-
-      {children}
-    </div>
-  );
+function waveBottomJoinMaskStyle(): CSSProperties {
+  return {
+    WebkitMaskImage: `${MASK_WAVE_BOTTOM}, linear-gradient(#000 0 0)`,
+    maskImage: `${MASK_WAVE_BOTTOM}, linear-gradient(#000 0 0)`,
+    WebkitMaskSize: "100% 71px, 100% calc(100% - 70px)",
+    maskSize: "100% 71px, 100% calc(100% - 70px)",
+    WebkitMaskPosition: "0 0, 0 70px",
+    maskPosition: "0 0, 0 70px",
+    WebkitMaskRepeat: "no-repeat",
+    maskRepeat: "no-repeat",
+  };
 }
 
 /* =========================================================
@@ -344,7 +333,7 @@ function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-[#852B09] px-0 pb-20 pt-32 shadow-[0_3px_0_0_#852B09] md:pb-32 md:pt-44 md:shadow-none"
+      className="relative overflow-hidden bg-[#852B09] px-0 pb-[150px] pt-32 md:pb-[198px] md:pt-44"
     >
       <div className="paper-grain pointer-events-none absolute inset-0 opacity-[0.60]" />
 
@@ -497,37 +486,9 @@ function Silencio() {
   return (
     <section
       id="silencio"
-      className="relative overflow-hidden bg-[#0B2428] px-5 pb-28 pt-28 shadow-[0_3px_0_0_#0B2428] md:px-12 md:pb-44 md:pt-36 md:shadow-none"
+      className="relative -mt-[70px] overflow-hidden bg-[#0B2428] px-5 pb-[182px] pt-[182px] md:px-12 md:pb-[246px] md:pt-[214px]"
+      style={waveTopMaskStyle()}
     >
-      {/* =====================================================
-          ONDULAÇÃO SUPERIOR (ENTRADA)
-          Onda na cor do Hero (#852B09) sobre a section Silêncio.
-          O pontilhado/textura (paper-grain) é recortado seguindo
-          a forma da onda, para que o fundo acompanhe a ondulação
-          (mesmo padrão da parte de baixo / Sobre).
-          ===================================================== */}
-      <WaveEdge fill="#852B09" placement="top">
-        {/* pontilhado acompanhando a onda (recortado no formato da onda) */}
-        <div
-          className="paper-grain absolute inset-0 opacity-60"
-          style={{ clipPath: "url(#silencio-wave-grain)" }}
-        />
-
-        <svg
-          width="0"
-          height="0"
-          className="absolute overflow-hidden"
-          style={{ position: "absolute", width: 0, height: 0 }}
-          aria-hidden="true"
-          focusable="false"
-        >
-          <defs>
-            <clipPath id="silencio-wave-grain" clipPathUnits="objectBoundingBox">
-              <path d="M0 0 H1 V0.357143 C0.916667 0.714286 0.833333 0.928571 0.75 0.642857 C0.666667 0.357143 0.583333 0.142857 0.5 0.428571 C0.416667 0.714286 0.333333 0.928571 0.25 0.571429 C0.166667 0.214286 0.083333 0.071429 0 0.285714 Z" />
-            </clipPath>
-          </defs>
-        </svg>
-      </WaveEdge>
 
       <div className="pointer-events-none absolute inset-0 opacity-20">
         <div className="paper-grain absolute inset-0" />
@@ -635,15 +596,9 @@ function Sobre() {
   return (
     <section
       id="carolina"
-      className="relative overflow-hidden bg-[#EFEAD5] px-5 pb-32 pt-36 md:px-12 md:pb-44 md:pt-48"
+      className="relative -mt-[70px] overflow-hidden bg-[#EFEAD5] px-5 pb-16 pt-[214px] md:px-12 md:pb-24 md:pt-[262px]"
+      style={waveTopMaskStyle()}
     >
-      {/* =====================================================
-          ONDULAÇÃO SUPERIOR (ENTRADA)
-          Onda na cor da section anterior Silêncio (#0B2428)
-          sobre a section Sobre — assim o fundo/pontilhado
-          acompanha a ondulação da divisão
-          ===================================================== */}
-      <WaveEdge fill="#0B2428" placement="top" />
 
       <div className="paper-grain pointer-events-none absolute inset-0 opacity-50" />
 
@@ -1228,7 +1183,7 @@ function Atendimento() {
   return (
     <section
       id="atendimento"
-      className="relative overflow-hidden bg-[#0B2428] px-5 py-24 shadow-[0_3px_0_0_#0B2428] md:px-12 md:py-40 md:shadow-none"
+      className="relative overflow-hidden bg-[#0B2428] px-5 pb-[166px] pt-24 md:px-12 md:pb-[230px] md:pt-40"
     >
       <div className="pointer-events-none absolute -right-32 -top-20 h-96 w-96 rounded-full border border-[#FED38A]/10" />
 
@@ -1457,16 +1412,10 @@ function Materiais() {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#EFEAD5] px-5 pb-28 pt-36 shadow-[0_3px_0_0_#852B09] md:px-12 md:pb-40 md:pt-48 md:shadow-none"
+      className="relative -mt-[70px] overflow-hidden bg-[#EFEAD5] px-5 pb-28 pt-[214px] md:px-12 md:pb-40 md:pt-[262px]"
+      style={waveTopMaskStyle()}
     >
       <div className="paper-grain pointer-events-none absolute inset-0 opacity-50" />
-
-      {/* =====================================================
-          ONDULAÇÃO SUPERIOR (ENTRADA)
-          Onda na cor da section anterior Atendimento (#0B2428)
-          sobre a section Materiais
-          ===================================================== */}
-      <WaveEdge fill="#0B2428" placement="top" />
 
       <div className="relative z-10 mx-auto max-w-[1300px]">
         <Reveal>
@@ -1524,12 +1473,6 @@ function Materiais() {
         </div>
       </div>
 
-      {/* =====================================================
-          ONDULAÇÃO INFERIOR (SAÍDA)
-          Onda na cor da próxima section CTA Final (#852B09)
-          sobre a section Materiais
-          ===================================================== */}
-      <WaveEdge fill="#852B09" placement="bottom" />
     </section>
   );
 }
@@ -1540,7 +1483,10 @@ function Materiais() {
 
 function CTAFinal() {
   return (
-    <section className="relative overflow-hidden bg-[#852B09] px-5 py-28 md:px-12 md:py-44">
+    <section
+      className="relative -mt-[70px] overflow-hidden bg-[#852B09] px-5 pb-28 pt-[182px] md:px-12 md:pb-44 md:pt-[246px]"
+      style={waveBottomJoinMaskStyle()}
+    >
       <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-[#D5DE9B]/5 blur-3xl" />
 
       <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full border border-[#FED38A]/10" />
