@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #efead5;
+  --color-brown: #852b09;
+  --color-petrol: #0b2428;
+  --color-sun: #fed38a;
+  --color-sage: #d5de9b;
+  --color-orange: #d45c0e;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Nunito Sans", system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #efead5;
+  color: #0b2428;
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.paper-grain {
+  background-image: radial-gradient(rgba(11, 36, 40, 0.09) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+.tape {
+  position: absolute;
+  width: 92px;
+  height: 26px;
+  background: rgba(254, 211, 138, 0.75);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
