@@ -452,7 +452,7 @@ function Hero() {
                 className="relative w-full rounded-[26px] object-cover md:rounded-[28px]"
                 style={{
                   aspectRatio: "4/5",
-                  filter: "grayscale(1) contrast(1.05)",
+                  filter: "contrast(1.05)",
                 }}
               />
             </div>
@@ -481,6 +481,7 @@ function Hero() {
   );
 }
 
+
 /* =========================================================
    SILÊNCIO
    ÚNICA SECTION COM ONDULAÇÃO (ENTRADA E SAÍDA)
@@ -490,7 +491,7 @@ function Silencio() {
   return (
     <section
       id="silencio"
-      className="relative -mt-[70px] overflow-hidden bg-[#0B2428] px-5 pb-[182px] pt-[182px] md:px-12 md:pb-[246px] md:pt-[214px]"
+      className="relative -mt-[70px] overflow-hidden bg-[#0B2428] px-5 pb-[92px] pt-[104px] md:px-12 md:pb-[126px] md:pt-[124px]"
       style={waveTopMaskStyle()}
     >
 
@@ -502,12 +503,12 @@ function Silencio() {
       <div className="pointer-events-none absolute -left-16 bottom-16 h-48 w-48 rounded-full bg-[#D5DE9B]/5 blur-3xl" />
       <div className="pointer-events-none absolute right-[18%] top-[18%] h-24 w-24 rounded-full bg-[#FED38A]/[0.025] blur-2xl" />
 
-      <div className="relative z-10 mx-auto max-w-[1100px] pt-8">
+      <div className="relative z-10 mx-auto max-w-[1100px] pt-3 md:pt-4">
         <Reveal>
-          <div className="mb-14 flex items-center gap-5 md:mb-16">
-            <GlyphEar className="h-11 w-11 text-[#D5DE9B] md:h-12 md:w-12" />
+          <div className="mb-7 flex items-center gap-5 md:mb-9">
+            <GlyphEar className="h-10 w-10 text-[#D5DE9B] md:h-11 md:w-11" />
 
-            <span className="font-script text-2xl text-[#FED38A]/70 md:text-3xl">
+            <span className="font-script text-2xl text-[#FED38A]/70 md:text-[1.65rem]">
               escutar também é ficar.
             </span>
           </div>
@@ -517,8 +518,8 @@ function Silencio() {
           <h2
             className="font-display max-w-5xl text-[#EFEAD5]"
             style={{
-              fontSize: "clamp(2.3rem,6vw,5rem)",
-              lineHeight: 1.02,
+              fontSize: "clamp(2.2rem,5.6vw,4.6rem)",
+              lineHeight: 1.0,
               fontWeight: 400,
               letterSpacing: "-0.025em",
             }}
@@ -542,10 +543,10 @@ function Silencio() {
         </Reveal>
 
         <Reveal delay={280}>
-          <div className="mt-16 flex justify-end md:mt-20">
+          <div className="mt-9 flex justify-end md:mt-10">
             <div className="relative max-w-2xl md:mr-12">
               <svg
-                className="mb-8 h-5 w-full opacity-50"
+                className="mb-5 h-5 w-full opacity-50"
                 viewBox="0 0 600 20"
                 preserveAspectRatio="none"
                 aria-hidden="true"
@@ -566,18 +567,18 @@ function Silencio() {
               <p
                 className="font-display text-[#EFEAD5]/90"
                 style={{
-                  fontSize: "clamp(1.4rem,3vw,2.15rem)",
-                  lineHeight: 1.35,
+                  fontSize: "clamp(1.35rem,2.85vw,2.02rem)",
+                  lineHeight: 1.32,
                   fontWeight: 400,
                 }}
               >
-                Há coisas que só aparecem quando paramos de{" "}
+                algumas coisas só entendemos quando nos {" "}
                 <span className="font-script text-[1.25em] text-[#D5DE9B]">
-                  tentar explicá-las.
+                  permitimos sentir.
                 </span>
               </p>
 
-      <div className="mt-8 flex items-center gap-4">
+      <div className="mt-5 flex items-center gap-4">
         <span className="h-px w-10 bg-[#D45C0E]" />
 
         <span className="font-omnes text-[0.6rem] uppercase tracking-[0.3em] text-[#EFEAD5]/40">
@@ -592,6 +593,7 @@ function Silencio() {
   );
 }
 
+
 /* =========================================================
    SOBRE — DIVISÃO RETA
    ========================================================= */
@@ -600,7 +602,7 @@ function Sobre() {
   return (
     <section
       id="carolina"
-      className="relative -mt-[70px] overflow-hidden bg-[#EFEAD5] px-5 pb-16 pt-[214px] md:px-12 md:pb-24 md:pt-[262px]"
+      className="relative -mt-[70px] overflow-hidden bg-[#EFEAD5] px-5 pb-16 pt-[160px] md:px-12 md:pb-24 md:pt-[200px]"
       style={waveTopMaskStyle()}
     >
 
@@ -693,12 +695,12 @@ function Sobre() {
           <Reveal delay={300}>
             <blockquote className="mt-10 border-l-2 border-[#D45C0E] pl-6 md:mt-12 md:pl-7">
               <p className="font-display text-[1.35rem] leading-snug text-[#0B2428] md:text-3xl">
-                Entre a arte e o sentir, um espaço pra{" "}
+                um processo que transforma o {" "}
                 <span
                   className="font-script text-[#852B09]"
                   style={{ fontSize: "1.2em" }}
                 >
-                  se reencontrar.
+                  indizível em consciência.
                 </span>
               </p>
             </blockquote>
@@ -724,20 +726,12 @@ function Sobre() {
   );
 }
 
+
 /* =========================================================
-   ARTETERAPIA — DIVISÃO RETA
+   ARTETERAPIA
    ========================================================= */
 
 function Arteterapia() {
-  const materiais = [
-    "pintura",
-    "colagem",
-    "escrita",
-    "argila",
-    "fotografia",
-    "movimento",
-  ];
-
   return (
     <section
       id="arteterapia"
@@ -754,72 +748,88 @@ function Arteterapia() {
       <div className="pointer-events-none absolute right-[-100px] top-[-120px] h-72 w-72 rounded-full border border-[#852B09]/10" />
 
       <div className="relative z-10 mx-auto max-w-[1300px]">
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-          <div>
-            <Reveal>
-              <p className="font-omnes mb-6 flex items-center gap-3 text-[0.62rem] uppercase tracking-[0.34em] text-[#0B2428]/60">
-                <GlyphFlower className="h-5 w-5 text-[#852B09]" />
-                arteterapia
-              </p>
+        {/* ---------- TEXTO ---------- */}
+        <div className="max-w-xl lg:max-w-[34rem]">
+          <Reveal>
+            <p className="font-omnes mb-6 flex items-center gap-3 text-[0.62rem] uppercase tracking-[0.34em] text-[#0B2428]/60">
+              <GlyphFlower className="h-5 w-5 text-[#852B09]" />
+              arteterapia
+            </p>
 
-              <h2
-                className="font-display text-[#852B09]"
-                style={{
-                  fontSize: "clamp(2rem,5vw,3.9rem)",
-                  lineHeight: 1.02,
-                  fontWeight: 400,
-                }}
-              >
-                QUANDO A ARTE
-                <br />
-                ENCONTRA O SENTIR
-              </h2>
-            </Reveal>
-
-            <Reveal delay={160}>
-              <p className="font-omnes mt-9 max-w-xl text-[1rem] leading-[1.9] text-[#0B2428]/85 md:mt-10 md:text-[1.02rem]">
-                A arteterapia é um método terapêutico que utiliza materiais
-                expressivos — pintura, colagem, escrita, argila, fotografia e
-                movimento — para acessar e compreender emoções que nem sempre
-                cabem em palavras.
-              </p>
-            </Reveal>
-
-            <Reveal delay={240}>
-              <p className="font-omnes mt-6 max-w-xl text-[1rem] leading-[1.9] text-[#0B2428]/85 md:text-[1.02rem]">
-                É um convite para materializar aquilo que é invisível e
-                encontrar novas formas de expressão através da criação. Aqui,
-                o material não julga: ele acolhe.
-              </p>
-            </Reveal>
-          </div>
-
-          <Reveal delay={200}>
-            <ul className="grid grid-cols-2 gap-3 md:gap-4">
-              {materiais.map((m, i) => (
-                <li
-                  key={m}
-                  className="flex min-h-[110px] flex-col justify-between rounded-[22px] p-5 shadow-[0_12px_30px_rgba(11,36,40,0.08)] md:min-h-[120px] md:rounded-[24px] md:p-5"
-                  style={{
-                    background: i % 3 === 1 ? "#EFEAD5" : "#D5DE9B",
-                  }}
-                >
-                  <span className="font-omnes text-[0.56rem] uppercase tracking-[0.24em] text-[#0B2428]/45">
-                    0{i + 1}
-                  </span>
-
-                  <span className="font-display text-lg text-[#852B09] md:text-2xl">
-                    {m}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <h2
+              className="font-display text-[#852B09]"
+              style={{
+                fontSize: "clamp(2rem,5vw,3.9rem)",
+                lineHeight: 1.02,
+                fontWeight: 400,
+              }}
+            >
+              QUANDO A ARTE
+              <br />
+              ENCONTRA O SENTIR
+            </h2>
           </Reveal>
+
+          <Reveal delay={160}>
+            <p className="font-omnes mt-9 max-w-xl text-[1rem] leading-[1.9] text-[#0B2428]/85 md:mt-10 md:text-[1.02rem]">
+              A arteterapia é um método terapêutico que utiliza materiais
+              expressivos — pintura, colagem, escrita, argila, fotografia e
+              movimento — para acessar e compreender conteúdos inconscientes e compreender emoções.
+            </p>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <p className="font-omnes mt-6 max-w-xl text-[1rem] leading-[1.9] text-[#0B2428]/85 md:text-[1.02rem]">
+              É um convite para materializar aquilo que é invisível e encontrar
+              novas formas de expressão através da criação. Aqui, o material não
+              julga: ele acolhe.
+            </p>
+          </Reveal>
+        </div>
+
+        {/* ---------- IMAGEM ----------
+            Mobile: entra no fluxo (abaixo do texto, centralizada) — nada de absolute.
+            md+: volta a ser absoluta, ancorada à direita e centralizada na altura da seção. */}
+        <div
+          className="pointer-events-none relative mx-auto mt-14 w-full max-w-[420px]
+                     md:absolute md:right-[2%] md:top-1/2 md:mt-0 md:max-w-[41%] md:-translate-y-1/2"
+        >
+          {/* Moldura: contorno fino deslocado, no mesmo raio da foto */}
+          <div className="pointer-events-none absolute left-4 top-4 h-full w-full rounded-[26px] border border-[#852B09]/20 md:left-6 md:top-6 md:rounded-[30px]" />
+
+          {/* Cartão arredondado com respiro interno (vira a moldura) */}
+          <div className="relative rounded-[26px] bg-[#F4EFE4] p-2.5 shadow-[0_20px_50px_-24px_rgba(11,36,40,0.5)] ring-1 ring-[#0B2428]/10 md:rotate-[-1.2deg] md:rounded-[30px] md:p-3">
+            <div className="overflow-hidden rounded-[18px] md:rounded-[21px]">
+              {/* h-auto: a foto entra inteira na moldura, na proporção original — zero corte. */}
+              <img
+                src="/images/arteterapia.jpg"
+                alt="Sessão de arteterapia"
+                className="block h-auto w-full"
+              />
+            </div>
+
+            {/* Selo decorativo (só no desktop, onde há respiro na lateral) */}
+            <div className="absolute -bottom-6 -left-6 hidden h-28 w-28 items-center justify-center rounded-full border border-[#852B09]/15 bg-[#D5DE9B]/80 backdrop-blur-[2px] md:flex">
+              <div className="flex flex-col items-center gap-1.5 text-center">
+                <GlyphFlower className="h-5 w-5 text-[#852B09]" />
+                <span className="font-omnes text-[0.52rem] uppercase leading-[1.5] tracking-[0.24em] text-[#0B2428]/70">
+                  expressão
+                  <br />
+                  livre
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+
+
+
+
 
 /* =========================================================
    TALENTO — DIVISÃO RETA
@@ -919,6 +929,25 @@ function ParaQuem() {
       icon: <GlyphDrop className="h-8 w-8" />,
       t: "Reconexão",
       d: "Quem deseja reconectar corpo, mente e expressão de forma gentil e profunda.",
+    },
+    {
+      icon: (
+        <svg
+          className="h-8 w-8"
+          viewBox="0 0 32 32"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M16 27S4.5 20 4.5 12.6A6.1 6.1 0 0 1 16 9a6.1 6.1 0 0 1 11.5 3.6C27.5 20 16 27 16 27Z" />
+          <path d="M16 9.5v6l-2.6 2.6 2.6 2.8 2.6-2.8L16 15.5" />
+        </svg>
+      ),
+      t: "Traumas",
+      d: "Pessoas que viveram uma situação difícil e gostariam de lidar melhor com o que aconteceu.",
     },
   ];
 
@@ -1033,6 +1062,7 @@ function ParaQuem() {
   );
 }
 
+
 /* =========================================================
    COMO FUNCIONA — DIVISÃO RETA
    ========================================================= */
@@ -1080,7 +1110,7 @@ function ComoFunciona() {
   return (
     <section
       id="como-funciona"
-      className="relative overflow-hidden bg-[#EFEAD5] px-5 py-16 md:px-12 md:py-28"
+      className="relative overflow-hidden bg-[#EFEAD5] px-5 py-15 md:px-19 md:py-22"
     >
       <div className="paper-grain pointer-events-none absolute inset-0 opacity-50" />
 
@@ -1115,7 +1145,7 @@ function ComoFunciona() {
           </Reveal>
 
           <Reveal delay={140}>
-            <div className="lg:pt-12">
+            <div className="lg:pt-10">
               <p className="font-omnes max-w-xl text-[1rem] leading-[1.9] text-[#0B2428]/85 md:text-[1.02rem]">
                 Não existe uma fórmula pronta. Cada encontro acontece a
                 partir da escuta, da presença e de uma proposta criativa
@@ -1125,7 +1155,7 @@ function ComoFunciona() {
           </Reveal>
         </div>
 
-        <div className="relative mt-20 hidden lg:block">
+        <div className="relative mt-14 hidden lg:block">
           <div className="absolute left-[7%] right-[7%] top-[30px] h-px bg-[#852B09]/20" />
 
           <div className="relative grid grid-cols-6">
@@ -1140,7 +1170,7 @@ function ComoFunciona() {
                     </span>
                   </div>
 
-                  <h3 className="font-display mt-7 text-xl text-[#0B2428]">
+                  <h3 className="font-display mt-5 text-xl text-[#0B2428]">
                     {e.t}
                   </h3>
 
@@ -1153,10 +1183,10 @@ function ComoFunciona() {
           </div>
         </div>
 
-        <div className="relative mt-14 lg:hidden">
+        <div className="relative mt-12 lg:hidden">
           <div className="absolute bottom-8 left-[29px] top-8 w-px bg-[#852B09]/20" />
 
-          <div className="relative space-y-9">
+          <div className="relative space-y-8">
             {etapas.map((e, i) => (
               <Reveal key={e.n} delay={i * 80}>
                 <div className="relative flex gap-5">
@@ -1184,8 +1214,8 @@ function ComoFunciona() {
         </div>
 
         <Reveal delay={300}>
-          <p className="font-script mt-14 text-2xl text-[#852B09] md:mt-16">
-            cada pessoa tem o seu próprio caminho.
+          <p className="font-script mt-12 text-2xl text-[#852B09] md:mt-14">
+            Cada pessoa tem seu próprio caminho, e eu estou aqui pra te ajudar a encontrar o seu.
           </p>
         </Reveal>
       </div>
@@ -1193,11 +1223,71 @@ function ComoFunciona() {
   );
 }
 
+
 /* =========================================================
    ATENDIMENTO — DIVISÃO RETA
    ========================================================= */
 
 function Atendimento() {
+  const informacoes = [
+    {
+      n: "01",
+      t: "Atendimento online",
+      d: "Um espaço de escuta e criação, onde você estiver.",
+    },
+    {
+      n: "02",
+      t: "Atendimento presencial",
+      d: "Encontros presenciais em Porto Alegre, em um ambiente acolhedor e confidencial.",
+    },
+    {
+      n: "03",
+      t: "Confidencialidade",
+      d: "Todos os assuntos e criações das sessões são confidenciais, respeitando a sua privacidade e as diretrizes da LGPD.",
+    },
+    {
+      n: "04",
+      t: "Valor das sessões",
+      d: "O valor é combinado no primeiro encontro, respeitando um valor que fique justo para mim e viável para o paciente.",
+    },
+  ];
+
+  const contatos = [
+    {
+      label: "whatsapp",
+      value: "(51) 99632-6048",
+      href: "https://wa.me/5551996326048?text=Ol%C3%A1%2C%20Carolina!%20Gostaria%20de%20saber%20mais%20sobre%20a%20arteterapia%20e%20agendar%20uma%20sess%C3%A3o.",
+    },
+    {
+      label: "instagram",
+      value: "@candida_arteterapia",
+      href: "https://www.instagram.com/candida_arteterapia/",
+    },
+    {
+      label: "endereço",
+      value: "Rua Vigário José Inácio, 250 — sala 73 · Centro Histórico/POA",
+      href: "https://maps.app.goo.gl/iukMtk3qqdwuyQVc9",
+    },
+  ];
+
+  const seta = (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 12L12 4M12 4H5.5M12 4V10.5"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
   return (
     <section
       id="atendimento"
@@ -1234,63 +1324,79 @@ function Atendimento() {
             </h2>
 
             <p className="font-omnes mt-7 max-w-xl text-[1rem] leading-[1.8] text-[#EFEAD5]/65 md:text-[1.05rem]">
-              Escolha a forma que fizer mais sentido para você. O importante é
-              encontrar um espaço seguro para chegar como você está.
+              Os encontros são semanais com duração de aproximadamente 50 minutos e todos os materiais estão inclusos.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-5 md:mt-20 md:grid-cols-2">
-          <Reveal delay={120}>
-            <div className="group rounded-[28px] border border-[#EFEAD5]/10 bg-[#EFEAD5]/[0.035] p-7 transition-all duration-500 hover:border-[#FED38A]/25 hover:bg-[#EFEAD5]/[0.06] md:p-9">
-              <div className="flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#D5DE9B]/30">
-                  <GlyphPetals className="h-7 w-7 text-[#D5DE9B]" />
-                </div>
-
-                <span className="font-script text-3xl text-[#FED38A]/50">
-                  01
+        <div className="mt-16 border-t border-[#EFEAD5]/15 md:mt-20">
+          {informacoes.map((it, i) => (
+            <Reveal key={it.n} delay={i * 90}>
+              <div className="grid grid-cols-[2.25rem_1fr] gap-4 border-b border-[#EFEAD5]/15 py-7 md:grid-cols-[3rem_1fr] md:gap-6 md:py-8">
+                <span className="font-script text-2xl text-[#FED38A]/45">
+                  {it.n}
                 </span>
-              </div>
 
-              <h3 className="font-display mt-8 text-2xl text-[#EFEAD5]">
-                Atendimento online
-              </h3>
+                <div>
+                  <h3 className="font-display text-[1.45rem] leading-tight text-[#EFEAD5] md:text-[1.7rem]">
+                    {it.t}
+                  </h3>
 
-              <p className="font-omnes mt-4 max-w-md text-[0.95rem] leading-[1.8] text-[#EFEAD5]/60">
-                Um espaço de escuta e criação, onde você estiver.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={220}>
-            <div className="group rounded-[28px] border border-[#EFEAD5]/10 bg-[#EFEAD5]/[0.035] p-7 transition-all duration-500 hover:border-[#FED38A]/25 hover:bg-[#EFEAD5]/[0.06] md:p-9">
-              <div className="flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#D45C0E]/40">
-                  <GlyphFlower className="h-7 w-7 text-[#D45C0E]" />
+                  <p className="font-omnes mt-3 max-w-xl text-[0.95rem] leading-[1.8] text-[#EFEAD5]/60">
+                    {it.d}
+                  </p>
                 </div>
-
-                <span className="font-script text-3xl text-[#FED38A]/50">
-                  02
-                </span>
               </div>
-
-              <h3 className="font-display mt-8 text-2xl text-[#EFEAD5]">
-                Atendimento presencial
-              </h3>
-
-              <p className="font-omnes mt-4 max-w-md text-[0.95rem] leading-[1.8] text-[#EFEAD5]/60">
-                Encontros presenciais em Porto Alegre, em um ambiente
-                acolhedor e confidencial.
-              </p>
-            </div>
-          </Reveal>
+            </Reveal>
+          ))}
         </div>
 
-        <Reveal delay={300}>
-          <div className="relative mt-5 overflow-hidden rounded-[30px] border border-[#FED38A]/15 bg-[#071b1e] md:mt-6">
+        <Reveal delay={260}>
+          <div className="mt-16 md:mt-20">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-[#D45C0E]" />
+
+              <span
+                className="font-script text-[#FED38A]"
+                style={{
+                  fontSize: "clamp(2.3rem,5.75vw,4.25rem)",
+                  lineHeight: 1.05,
+                }}
+              >
+                contato
+              </span>
+            </div>
+
+            <div className="mt-8 border-t border-[#EFEAD5]/15">
+              {contatos.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group grid grid-cols-1 gap-3 border-b border-[#EFEAD5]/15 py-6 transition-colors duration-300 hover:bg-[#EFEAD5]/[0.03] sm:grid-cols-[8.5rem_1fr_auto] sm:items-center sm:gap-6 sm:px-3"
+                >
+                  <span className="font-omnes text-[0.6rem] uppercase tracking-[0.3em] text-[#D5DE9B]">
+                    {c.label}
+                  </span>
+
+                  <span className="font-display text-[1.15rem] leading-snug text-[#EFEAD5] transition-colors duration-300 group-hover:text-[#FED38A] md:text-[1.3rem]">
+                    {c.value}
+                  </span>
+
+                  <span className="text-[#FED38A]/60 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#FED38A]">
+                    {seta}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={360}>
+          <div className="relative mt-16 overflow-hidden border-y border-[#FED38A]/15 bg-[#071b1e] md:mt-20">
             <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
-              <div className="relative flex flex-col justify-between p-7 md:p-10">
+              <div className="relative flex flex-col justify-between p-7 md:p-10 lg:py-14">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="h-px w-8 bg-[#D45C0E]" />
@@ -1316,7 +1422,7 @@ function Atendimento() {
                   href="https://maps.app.goo.gl/iukMtk3qqdwuyQVc9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-omnes mt-9 inline-flex w-fit items-center gap-3 rounded-full border border-[#FED38A]/35 px-5 py-3 text-[0.62rem] uppercase tracking-[0.2em] text-[#FED38A] transition-all duration-300 hover:border-[#FED38A] hover:bg-[#FED38A] hover:text-[#0B2428]"
+                  className="font-omnes mt-9 inline-flex w-fit items-center gap-3 border-b border-[#FED38A]/40 pb-2 text-[0.62rem] uppercase tracking-[0.2em] text-[#FED38A] transition-all duration-300 hover:gap-5 hover:border-[#FED38A]"
                 >
                   Ver localização no Maps
 
@@ -1338,7 +1444,7 @@ function Atendimento() {
                 </a>
               </div>
 
-              <div className="relative min-h-[280px] overflow-hidden bg-[#123338] md:min-h-[340px]">
+              <div className="relative min-h-[280px] overflow-hidden border-t border-[#EFEAD5]/10 bg-[#123338] md:min-h-[340px] lg:border-l lg:border-t-0">
                 <div className="absolute inset-0 opacity-20">
                   <div
                     className="absolute inset-0"
@@ -1389,7 +1495,7 @@ function Atendimento() {
           </div>
         </Reveal>
 
-        <Reveal delay={400}>
+        <Reveal delay={440}>
           <div className="mt-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
             <Btn href={WHATSAPP} tone="sun">
               Agendar sessão
@@ -1405,6 +1511,8 @@ function Atendimento() {
   );
 }
 
+
+
 /* =========================================================
    MATERIAIS — O ATELIÊ COMO LINGUAGEM (COM ONDULAÇÃO ENTRADA/SAÍDA)
    ========================================================= */
@@ -1413,16 +1521,19 @@ function Materiais() {
   const blocos = [
     {
       t: "PINTURA",
-      img: "/images/hero.jpg",
+      t2: "ESCRITA",
+      img: "/images/materials.jpg",
       bg: "#FED38A",
     },
     {
       t: "COLAGEM",
+      t2: "DESENHO",
       img: "/images/collage.jpg",
       bg: "#D5DE9B",
     },
     {
       t: "ARGILA",
+      t2: "MOVIMENTO CORPORAL",
       img: "/images/clay.jpg",
       bg: "#D45C0E",
     },
@@ -1430,7 +1541,7 @@ function Materiais() {
 
   return (
     <section
-      className="relative -mt-[70px] overflow-hidden bg-[#EFEAD5] px-5 pb-28 pt-[214px] md:px-12 md:pb-40 md:pt-[262px]"
+      className="relative -mt-[70px] overflow-hidden bg-[#EFEAD5] px-5 pb-28 pt-[120px] md:px-12 md:pb-40 md:pt-[160px]"
       style={waveTopMaskStyle()}
     >
       <div className="paper-grain pointer-events-none absolute inset-0 opacity-50" />
@@ -1482,9 +1593,15 @@ function Materiais() {
                   }}
                 />
 
-                <p className="font-omnes relative mt-5 text-[0.68rem] uppercase tracking-[0.28em] text-[#0B2428]">
-                  {b.t}
-                </p>
+                <div className="relative mt-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
+                  <p className="font-omnes text-[0.68rem] uppercase tracking-[0.28em] text-[#0B2428]">
+                    {b.t}
+                  </p>
+
+                  <p className="font-omnes text-right text-[0.68rem] uppercase tracking-[0.28em] text-[#0B2428]">
+                    {b.t2}
+                  </p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -1494,6 +1611,7 @@ function Materiais() {
     </section>
   );
 }
+
 
 /* =========================================================
    CTA FINAL — DIVISÃO RETA
